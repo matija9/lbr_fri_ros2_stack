@@ -4,7 +4,7 @@ hardware:
     major_version: 1
     minor_version: 15
   client_command_mode: position # the command mode specifies the user-sent commands. Available: [position, torque, wrench]
-  port_id: 30200 # port id for the UDP communication. Useful in multi-robot setups
+  port_id: 30205 # port id for the UDP communication. Useful in multi-robot setups
   remote_host: INADDR_ANY # the expected robot IP address. INADDR_ANY will accept any incoming connection
   rt_prio: 90 # real-time priority for the control loop
   # exponential moving average time constant for joint position commands [s]:
@@ -26,13 +26,13 @@ hardware:
 estimated_ft_sensor: # estimates the external force-torque from the external joint torque values
   enabled: true # whether to enable the force-torque estimation
   update_rate: 200 # update rate for the force-torque estimation [Hz] (less or equal to controller manager update rate)
-  rt_prio: 70 # real-time priority for the force-torque estimation
+  rt_prio: 50 # real-time priority for the force-torque estimation
   chain_root: lbr_link_0
   chain_tip: lbr_link_ee
   damping: 0.2 # damping factor for the pseudo-inverse of the Jacobian
   force_x_th: 2.0 # x-force threshold. Only if the force exceeds this value, the force will be considered
   force_y_th: 2.0 # y-force threshold. Only if the force exceeds this value, the force will be considered
   force_z_th: 2.0 # z-force threshold. Only if the force exceeds this value, the force will be considered
-  torque_x_th: 0.3 # x-torque threshold. Only if the torque exceeds this value, the torque will be considered
-  torque_y_th: 0.3 # y-torque threshold. Only if the torque exceeds this value, the torque will be considered
-  torque_z_th: 0.3 # z-torque threshold. Only if the torque exceeds this value, the torque will be considered
+  torque_x_th: 0.5 # x-torque threshold. Only if the torque exceeds this value, the torque will be considered
+  torque_y_th: 0.5 # y-torque threshold. Only if the torque exceeds this value, the torque will be considered
+  torque_z_th: 0.5 # z-torque threshold. Only if the torque exceeds this value, the torque will be considered
