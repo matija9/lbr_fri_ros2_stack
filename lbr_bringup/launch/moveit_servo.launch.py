@@ -13,10 +13,17 @@ from lbr_bringup.moveit import LBRMoveGroupMixin, LBRMoveItServoMixin
 def hidden_setup(context: LaunchContext) -> List[LaunchDescriptionEntity]:
     ld = LaunchDescription()
 
-    moveit_servo_config = PathJoinSubstitution(
-        [FindPackageShare("lbr_bringup"), "config/moveit_servo.yaml"]
-    )
+    
     model = LaunchConfiguration("model").perform(context)
+    if 'med' in model:
+        moveit_servo_config = PathJoinSubstitution(
+            [FindPackageShare("lbr_bringup"), "config/moveit_servo_med.yaml"]
+        )
+    else:
+        moveit_servo_config = PathJoinSubstitution(
+            [FindPackageShare("lbr_bringup"), "config/moveit_servo.yaml"]
+        )
+
     moveit_configs = LBRMoveGroupMixin.moveit_configs_builder(
         robot_name=model,
         package_name=f"{model}_moveit_config",
