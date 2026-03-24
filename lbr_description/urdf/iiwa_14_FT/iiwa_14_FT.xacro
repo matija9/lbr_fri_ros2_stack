@@ -5,6 +5,7 @@
 
     <!-- include the lbr iiwa macro -->
     <xacro:include filename="$(find lbr_description)/urdf/iiwa14/iiwa14_description.xacro" />
+    <xacro:include filename="$(find bota_driver)/urdf/BFT_SENS_ECAT_M8.urdf.xacro" />
 
     <xacro:arg name="robot_name" default="lbr" />
     <xacro:arg name="mode" default="true" />
@@ -14,6 +15,7 @@
     <xacro:arg
         name="initial_joint_positions_path"
         default="$(find lbr_description)/ros2_control/initial_joint_positions.yaml" />
+    <xacro:arg name="prefix" default="bota_driver_node" />
 
     <!-- KDL requires a link without inertia / Gazebo requires a connection to world link or robot
     will tipple https://github.com/lbr-stack/lbr_fri_ros2_stack/issues/230 -->
@@ -26,6 +28,11 @@
         <child link="$(arg robot_name)_link_0" />
     </joint>
 
+    <joint name="bft_sens_ecat_m8_robot_joint" type="fixed">
+        <origin xyz="0 0 0.035" rpy="0 0 3.1415923" />
+        <parent link="$(arg robot_name)_link_7" />
+        <child link="$(arg prefix)_mounting" />
+    </joint>
 
     <!-- iiwa -->
     <xacro:iiwa14
@@ -33,5 +40,6 @@
         mode="$(arg mode)"
         system_config_path="$(arg system_config_path)"
         initial_joint_positions_path="$(arg initial_joint_positions_path)" />
-
+    <xacro:BFT_SENS_ECAT_M8
+        prefix="$(arg prefix)" />
 </robot>

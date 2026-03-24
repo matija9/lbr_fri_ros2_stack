@@ -15,11 +15,11 @@ hardware:
   # exponential moving average time constant for external joint torque measurements [s]:
   #   set tau > robot sample time for more smoothing on the external torque measurements
   #   set tau << robot sample time for no smoothing on the external torque measurements
-  external_torque_tau: 0.04
+  external_torque_tau: 0.01
   # exponential moving average time constant for joint torque measurements [s]:
   #   set tau > robot sample time for more smoothing on the raw torque measurements
   #   set tau << robot sample time for no smoothing on the raw torque measurements
-  measured_torque_tau: 0.04
+  measured_torque_tau: 0.01
   # for position control, LBR works best in open_loop control mode
   # note that open_loop is overridden to false if LBR is in impedance or Cartesian impedance control mode
   open_loop: true
@@ -29,10 +29,10 @@ estimated_ft_sensor: # estimates the external force-torque from the external joi
   rt_prio: 70 # real-time priority for the force-torque estimation
   chain_root: lbr_link_0
   chain_tip: lbr_link_ee
-  damping: 0.2 # damping factor for the pseudo-inverse of the Jacobian
-  force_x_th: 2.0 # x-force threshold. Only if the force exceeds this value, the force will be considered
-  force_y_th: 2.0 # y-force threshold. Only if the force exceeds this value, the force will be considered
-  force_z_th: 2.0 # z-force threshold. Only if the force exceeds this value, the force will be considered
-  torque_x_th: 0.3 # x-torque threshold. Only if the torque exceeds this value, the torque will be considered
-  torque_y_th: 0.3 # y-torque threshold. Only if the torque exceeds this value, the torque will be considered
-  torque_z_th: 0.3 # z-torque threshold. Only if the torque exceeds this value, the torque will be considered
+  damping: 0.1 # damping factor for the pseudo-inverse of the Jacobian
+  force_x_th: 1.0 # x-force threshold. Only if the force exceeds this value, the force will be considered
+  force_y_th: 1.0 # y-force threshold. Only if the force exceeds this value, the force will be considered
+  force_z_th: 0.5 # z-force threshold. Only if the force exceeds this value, the force will be considered
+  torque_x_th: 0.05 # x-torque threshold. Only if the torque exceeds this value, the torque will be considered
+  torque_y_th: 0.05 # y-torque threshold. Only if the torque exceeds this value, the torque will be considered
+  torque_z_th: 0.05 # z-torque threshold. Only if the torque exceeds this value, the torque will be considered
