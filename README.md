@@ -1,3 +1,7 @@
+>[!NOTE]
+>This is a fork of the [lbr-stack](https://github.com/lbr-stack/lbr_fri_ros2_stack) modified for the use with the [PRONOBIS project](https://github.com/CRTA-Lab/KUKA_LBRMed_servoing). If you use this plese credit the original autors of the package.
+
+
 # lbr_fri_ros2_stack
 [![License](https://img.shields.io/github/license/lbr-stack/lbr_fri_ros2_stack)](https://github.com/lbr-stack/lbr_fri_ros2_stack/tree/humble?tab=Apache-2.0-1-ov-file#readme) 
 [![Documentation Status](https://readthedocs.org/projects/lbr-stack/badge/?version=latest)](https://lbr-stack.readthedocs.io/en/latest/?badge=latest)
@@ -23,6 +27,7 @@ ROS 2 packages for the KUKA LBR, including communication to the real robot via t
     </table>
 </body>
 
+<!--
 ## Status
 | OS             | ROS Distribution | FRI Version |  Build Status |
 | :------------- | :--------------- | :---------- |  :----------- |
@@ -32,6 +37,7 @@ ROS 2 packages for the KUKA LBR, including communication to the real robot via t
 | `Ubuntu-22.04` | `humble`         | `1.16`      |  [![build-ubuntu-22.04-fri-1.16](https://github.com/lbr-stack/lbr_fri_ros2_stack/actions/workflows/build-ubuntu-22.04-fri-1.16.yml/badge.svg)](https://github.com/lbr-stack/lbr_fri_ros2_stack/actions/workflows/build-ubuntu-22.04-fri-1.16.yml) |
 | `Ubuntu-22.04` | `humble`         | `2.5`      |  [![build-ubuntu-22.04-fri-2.5](https://github.com/lbr-stack/lbr_fri_ros2_stack/actions/workflows/build-ubuntu-22.04-fri-2.5.yml/badge.svg)](https://github.com/lbr-stack/lbr_fri_ros2_stack/actions/workflows/build-ubuntu-22.04-fri-2.5.yml) |
 | `Ubuntu-22.04` | `humble`         | `2.7`      |  [![build-ubuntu-22.04-fri-2.7](https://github.com/lbr-stack/lbr_fri_ros2_stack/actions/workflows/build-ubuntu-22.04-fri-2.7.yml/badge.svg)](https://github.com/lbr-stack/lbr_fri_ros2_stack/actions/workflows/build-ubuntu-22.04-fri-2.7.yml) |
+/-->
 
 ## Documentation
 Full documentation available on [Read the Docs](https://lbr-stack.readthedocs.io/en/latest).
@@ -49,7 +55,7 @@ Full documentation available on [Read the Docs](https://lbr-stack.readthedocs.io
     source /opt/ros/humble/setup.bash
     export FRI_CLIENT_VERSION=1.15
     mkdir -p lbr-stack/src && cd lbr-stack
-    vcs import src --input https://raw.githubusercontent.com/lbr-stack/lbr_fri_ros2_stack/humble/lbr_fri_ros2_stack/repos-fri-${FRI_CLIENT_VERSION}.yaml
+    vcs import src --input https://raw.githubusercontent.com/matija9/lbr_fri_ros2_stack/refs/heads/humble/lbr_fri_ros2_stack/repos-fri-${FRI_CLIENT_VERSION}.yaml
     rosdep install --from-paths src -i -r -y
     ```
 
@@ -83,44 +89,3 @@ Full documentation available on [Read the Docs](https://lbr-stack.readthedocs.io
     ```
 
 Now, run the [demos](https://lbr-stack.readthedocs.io/en/latest/lbr_fri_ros2_stack/lbr_demos/doc/lbr_demos.html). To get started with the real robot, checkout the [Hardware Setup](https://lbr-stack.readthedocs.io/en/latest/lbr_fri_ros2_stack/lbr_fri_ros2_stack/doc/hardware_setup.html).
-
-## Citation
-If you enjoyed using this repository for your work, we would really appreciate ❤️ if you could leave a ⭐ and / or cite it, as it helps us to continue offering support.
-
-```
-@article{Huber2024,
-  doi       = {10.21105/joss.06138},
-  url       = {https://doi.org/10.21105/joss.06138},
-  year      = {2024},
-  publisher = {The Open Journal},
-  volume    = {9},
-  number    = {103},
-  pages     = {6138},
-  author    = {Martin Huber and Christopher E. Mower and Sebastien Ourselin and Tom Vercauteren and Christos Bergeles},
-  title     = {LBR-Stack: ROS 2 and Python Integration of KUKA FRI for Med and IIWA Robots},
-  journal   = {Journal of Open Source Software}
-}
-```
-
-## Acknowledgements
-### Open Source Contributors
-We would like to acknowledge all contributors 🚀
-
-**lbr_fri_ros2_stack**
-
-[![lbr_fri_ros2_stack contributors](https://contrib.rocks/image?repo=lbr-stack/lbr_fri_ros2_stack&max=20)](https://github.com/lbr-stack/lbr_fri_ros2_stack/graphs/contributors)
-
-**fri**
-
-[![fri contributors](https://contrib.rocks/image?repo=lbr-stack/fri&max=20)](https://github.com/lbr-stack/fri/graphs/contributors)
-
-### Organizations and Grants
-We would further like to acknowledge following supporters:
-
-| Logo | Notes |
-|:--:|:---|
-| <img src="https://medicalengineering.org.uk/wp-content/themes/aalto-child/_assets/images/medicalengineering-logo.svg" alt="wellcome" width="150" align="left">  | This work was supported by core and project funding from the Wellcome/EPSRC [WT203148/Z/16/Z; NS/A000049/1; WT101957; NS/A000027/1]. |
-| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1920px-Flag_of_Europe.svg.png" alt="eu_flag" width="150" align="left"> | This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 101016985 (FAROS project). |
-| <img src="https://rvim.online/author/avatar_hu8970a6942005977dc117387facf47a75_62303_270x270_fill_lanczos_center_2.png" alt="RViMLab" width="150" align="left"> | Built at [RViMLab](https://rvim.online/). |
-| <img src="https://avatars.githubusercontent.com/u/75276868?s=200&v=4" alt="King's College London" width="150" align="left"> | Built at [CAI4CAI](https://cai4cai.ml/). |
-| <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/King%27s_College_London_logo.svg" alt="King's College London" width="150" align="left"> | Built at [King's College London](https://www.kcl.ac.uk/). |
